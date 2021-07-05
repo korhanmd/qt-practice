@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = hello_world
+TARGET = hello_world.out
 INCLUDEPATH += .
 QT += widgets
 
