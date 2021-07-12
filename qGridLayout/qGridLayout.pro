@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = qGridLayout
+TARGET = qGridLayout.out
 INCLUDEPATH += .
 QT += widgets
 
