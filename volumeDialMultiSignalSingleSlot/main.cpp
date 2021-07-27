@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 	QObject::connect(lengthSlider, SIGNAL(valueChanged(int)), volumeLCD, SLOT(display(int)));
 
 	QObject::connect(volumeDial, SIGNAL(valueChanged(int)), lengthSlider, SLOT(setValue(int)));
+	QObject::connect(lengthSlider, SIGNAL(valueChanged(int)), volumeDial, SLOT(setValue(int)));
 
 	window->setLayout(layout);
 	window->show();
