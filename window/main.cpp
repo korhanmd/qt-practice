@@ -1,12 +1,11 @@
 #include <QApplication>
-#include <QMainWindow>
-#include <QLabel>
+#include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 	
-	QMainWindow mainWindow;
+	MainWindow mainWindow;
 	mainWindow.show();
 	
 	return a.exec();
