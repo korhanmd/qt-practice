@@ -33,4 +33,7 @@ MainWindow::MainWindow()
 	aboutAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_H));
 
 	helpMenu->addAction(aboutAction);
+
+	// Setup Signals and Slots
+	connect(quitAction, &QAction::triggered, this, &QApplication::quit);
 }
