@@ -25,4 +25,12 @@ MainWindow::MainWindow()
 	fileMenu->addAction(openAction);
 	fileMenu->addSeparator();
 	fileMenu->addAction(quitAction);
+
+	// Setup help menu
+	helpMenu = menuBar()->addMenu("Help");
+
+	aboutAction = new QAction("About", this);
+	aboutAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_H));
+
+	helpMenu->addAction(aboutAction);
 }
