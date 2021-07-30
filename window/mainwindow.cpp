@@ -15,9 +15,7 @@ MainWindow::MainWindow()
 	mainWidget->setLayout(centralWidgetLayout);
 	setCentralWidget(mainWidget);
 
-	// Setup Signals and Slots
-	connect(quitAction, &QAction::triggered, this, &QApplication::quit);
-	connect(closeToolBarAction, &QAction::triggered, this, &QApplication::quit);
+	setupSignalsAndSlots();
 }
 
 void MainWindow::createIcons() {
@@ -109,4 +107,11 @@ void MainWindow::createToolBar() {
 	toolbar->addSeparator();
 	clearToolBarAction = toolbar->addAction(QIcon(clearIcon), "Clear All");
 	closeToolBarAction = toolbar->addAction(QIcon(closeIcon), "Quit Application");
+}
+
+void MainWindow::setupSignalsAndSlots() {
+	// Setup Signals and Slots
+	connect(quitAction, &QAction::triggered, this, &QApplication::quit);
+	connect(closeToolBarAction, &QAction::triggered, this, &QApplication::quit);
+	connect(savePushButton, SIGNAL(clicked()), this, SLOT(saveButtonClicked()));
 }
