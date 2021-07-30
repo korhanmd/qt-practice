@@ -8,6 +8,7 @@ MainWindow::MainWindow()
 	createIcons();
 	setupCoreWidgets();
 	createMenuBar();
+	createToolBar();
 
 	centralWidgetLayout->addLayout(formLayout);
 	centralWidgetLayout->addWidget(appTable);
