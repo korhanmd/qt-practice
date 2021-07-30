@@ -8,6 +8,9 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <Qt>
+#include <QPushButton>
+#include <QToolBar>
+#include <QTableView>
 
 class MainWindow : public QMainWindow
 {
@@ -27,6 +30,11 @@ class MainWindow : public QMainWindow
 		QAction *openAction;
 		QAction *newAction;
 		QAction *aboutQtAction;
+		// Toolbar
+		QToolBar *toolbar;
+		QAction *newToolBarAction;
+		QAction *openToolBarAction;
+		QAction *closeToolBarAction;
 };
 
 #endif
