@@ -9,14 +9,6 @@ MainWindow::MainWindow()
 	setupCoreWidgets();
 	createMenuBar();
 
-	// Setup Tool bar menu
-	toolbar = addToolBar("main toolbar");
-
-	newToolBarAction = toolbar->addAction(QIcon(newIcon), "New File");
-	openToolBarAction = toolbar->addAction(QIcon(openIcon), "Open File");
-	toolbar->addSeparator();
-	closeToolBarAction = toolbar->addAction(QIcon(closeIcon), "Quit Application");
-
 	// Setup Signals and Slots
 	connect(quitAction, &QAction::triggered, this, &QApplication::quit);
 	connect(closeToolBarAction, &QAction::triggered, this, &QApplication::quit);
@@ -100,4 +92,15 @@ void MainWindow::createMenuBar() {
 	aboutAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_H));
 
 	helpMenu->addAction(aboutAction);
+}
+
+void MainWindow::createToolBar() {
+	// Setup Tool bar menu
+	toolbar = addToolBar("main toolbar");
+
+	newToolBarAction = toolbar->addAction(QIcon(newIcon), "New File");
+	openToolBarAction = toolbar->addAction(QIcon(openIcon), "Open File");
+	toolbar->addSeparator();
+	clearToolBarAction = toolbar->addAction(QIcon(clearIcon), "Clear All");
+	closeToolBarAction = toolbar->addAction(QIcon(closeIcon), "Quit Application");
 }
