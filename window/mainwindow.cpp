@@ -48,7 +48,7 @@ void MainWindow::setupCoreWidgets() {
 	model->setHorizontalHeaderItem(0, new QStandardItem(QString("Name")));
 	model->setHorizontalHeaderItem(1, new QStandardItem(QString("Date of Birth")));
 	model->setHorizontalHeaderItem(2, new QStandardItem(QString("Phone Number")));
-	appTable->setModel(model)
+	appTable->setModel(model);
 
 	QStandardItem *firstItem = new QStandardItem(QString("G. Shone"));
 	QDate dateOfBirth(1980, 1, 1);
@@ -114,4 +114,14 @@ void MainWindow::setupSignalsAndSlots() {
 	connect(quitAction, &QAction::triggered, this, &QApplication::quit);
 	connect(closeToolBarAction, &QAction::triggered, this, &QApplication::quit);
 	connect(savePushButton, SIGNAL(clicked()), this, SLOT(saveButtonClicked()));
+}
+
+void MainWindow::saveButtonClicked()
+{
+	QStandardItem *name = new QStandardItem(nameLineEdit->text());
+	QStandardItem *dob = new QStandardItem(dateOfBirthEdit->date().toString());
+	QStandardItem *phoneNumber = new QStandardItem(phoneNumberLineEdit->text());
+	
+	model->appendRow({ name, dob, phoneNumber});
+	clearFields();
 }
