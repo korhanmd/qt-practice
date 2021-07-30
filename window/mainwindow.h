@@ -70,7 +70,7 @@ class MainWindow : public QMainWindow
 		void createIcons();
 		void createMenuBar();
 		void createToolBar();
-		void setupSignalsAndSlot();
+		void setupSignalsAndSlots();
 		void setupCoreWidgets();
 };
 
