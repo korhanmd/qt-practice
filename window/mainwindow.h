@@ -29,6 +29,20 @@ class MainWindow : public QMainWindow
 	private slots:
 		void saveButtonClicked();
 	private:
+		QWidget *mainWidget;
+		QVBoxLayout *centralWidgetLayout;
+		QGridLayout *formLayout;
+		QHBoxLayout *buttonsLayout;
+		QLabel *nameLabel;
+		QLabel *dateOfBirthLabel;
+		QLabel *phoneNumberLabel;
+		QPushButton *savePushButton;
+		QPushButton *newPushButton;
+		QLineEdit *nameLineEdit;
+		QDateEdit *dateOfBirthEdit;
+		QLineEdit *phoneNumberLineEdit;
+		QTableView *appTable;
+		QStandardItemModel *model;
 		// Menus
 		QMenu *fileMenu;
 		QMenu *helpMenu;
@@ -45,6 +59,19 @@ class MainWindow : public QMainWindow
 		QAction *newToolBarAction;
 		QAction *openToolBarAction;
 		QAction *closeToolBarAction;
+		QAction *clearToolBarAction;
+		// Icons
+		QPixmap newIcon;
+		QPixmap openIcon;
+		QPixmap closeIcon;
+		QPixmap clearIcon;
+		// init methods
+		void clearFields();
+		void createIcons();
+		void createMenuBar();
+		void createToolBar();
+		void setupSignalsAndSlot();
+		void setupCoreWidgets();
 };
 
 #endif
