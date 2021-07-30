@@ -125,3 +125,11 @@ void MainWindow::saveButtonClicked()
 	model->appendRow({ name, dob, phoneNumber});
 	clearFields();
 }
+
+void MainWindow::clearFields()
+{
+	nameLineEdit->clear();
+	phoneNumberLineEdit->setText("");
+	QDate dateOfBirth(1980, 1, 1);
+	dateOfBirthEdit->setDate(dateOfBirth);
+}
