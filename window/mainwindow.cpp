@@ -44,4 +44,5 @@ MainWindow::MainWindow()
 
 	// Setup Signals and Slots
 	connect(quitAction, &QAction::triggered, this, &QApplication::quit);
+	connect(closeToolBarAction, &QAction::triggered, this, &QApplication::quit);
 }
