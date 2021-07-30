@@ -5,9 +5,7 @@ MainWindow::MainWindow()
 	setWindowTitle("SRM System");
 	setFixedSize(500, 500);
 
-	QPixmap newIcon("new.png");
-	QPixmap openIcon("open.png");
-	QPixmap closeIcon("close.png");
+	createIcons();
 
 	// Setup File Menu
 	fileMenu = menuBar()->addMenu("&File");
@@ -45,4 +43,11 @@ MainWindow::MainWindow()
 	// Setup Signals and Slots
 	connect(quitAction, &QAction::triggered, this, &QApplication::quit);
 	connect(closeToolBarAction, &QAction::triggered, this, &QApplication::quit);
+}
+
+void MainWindow::createIcons() {
+	newIcon = QPixmap("new.png");
+	openIcon = QPixmap("open.png");
+	closeIcon = QPixmap("close.png");
+	clearIcon = QPixmap("clear.png");
 }
