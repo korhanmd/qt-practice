@@ -27,6 +27,7 @@ class MainWindow : public QMainWindow
 	public:
 		MainWindow();
 	private slots:
+		void saveButtonClicked();
 	private:
 		// Menus
 		QMenu *fileMenu;
