@@ -9,6 +9,12 @@ MainWindow::MainWindow()
 	setupCoreWidgets();
 	createMenuBar();
 
+	centralWidgetLayout->addLayout(formLayout);
+	centralWidgetLayout->addWidget(appTable);
+	centralWidgetLayout->addLayout(buttonsLayout);
+	mainWidget->setLayout(centralWidgetLayout);
+	setCentralWidget(mainWidget);
+
 	// Setup Signals and Slots
 	connect(quitAction, &QAction::triggered, this, &QApplication::quit);
 	connect(closeToolBarAction, &QAction::triggered, this, &QApplication::quit);
