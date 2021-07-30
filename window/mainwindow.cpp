@@ -7,31 +7,7 @@ MainWindow::MainWindow()
 
 	createIcons();
 	setupCoreWidgets();
-
-	// Setup File Menu
-	fileMenu = menuBar()->addMenu("&File");
-
-	quitAction = new QAction(closeIcon, "Quit", this);
-	quitAction->setShortcuts(QKeySequence::Quit);
-
-	newAction = new QAction(newIcon, "&New", this);
-	newAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_C));
-
-	openAction = new QAction(openIcon, "&Open", this);
-	openAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
-
-	fileMenu->addAction(newAction);
-	fileMenu->addAction(openAction);
-	fileMenu->addSeparator();
-	fileMenu->addAction(quitAction);
-
-	// Setup help menu
-	helpMenu = menuBar()->addMenu("Help");
-
-	aboutAction = new QAction("About", this);
-	aboutAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_H));
-
-	helpMenu->addAction(aboutAction);
+	createMenuBar();
 
 	// Setup Tool bar menu
 	toolbar = addToolBar("main toolbar");
@@ -97,4 +73,31 @@ void MainWindow::setupCoreWidgets() {
 	buttonsLayout->addStretch();
 	buttonsLayout->addWidget(savePushButton);
 	buttonsLayout->addWidget(newPushButton);
+}
+
+void MainWindow::createMenuBar() {
+	// Setup File Menu
+	fileMenu = menuBar()->addMenu("&File");
+
+	quitAction = new QAction(closeIcon, "Quit", this);
+	quitAction->setShortcuts(QKeySequence::Quit);
+
+	newAction = new QAction(newIcon, "&New", this);
+	newAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_C));
+
+	openAction = new QAction(openIcon, "&Open", this);
+	openAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
+
+	fileMenu->addAction(newAction);
+	fileMenu->addAction(openAction);
+	fileMenu->addSeparator();
+	fileMenu->addAction(quitAction);
+
+	// Setup help menu
+	helpMenu = menuBar()->addMenu("Help");
+
+	aboutAction = new QAction("About", this);
+	aboutAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_H));
+
+	helpMenu->addAction(aboutAction);
 }
