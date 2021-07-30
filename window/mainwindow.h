@@ -11,6 +11,15 @@
 #include <QPushButton>
 #include <QToolBar>
 #include <QTableView>
+#include <QLabel>
+#include <QLineEdit>
+#include <QDate>
+#include <QDateEdit>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QGridLayout>
+#include <QMessageBox>
+#include <QHeaderView>
 
 class MainWindow : public QMainWindow
 {
