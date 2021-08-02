@@ -20,6 +20,7 @@
 #include <QGridLayout>
 #include <QMessageBox>
 #include <QHeaderView>
+#include <QInputDialog>
 
 class MainWindow : public QMainWindow
 {
@@ -28,6 +29,9 @@ class MainWindow : public QMainWindow
 		MainWindow();
 	private slots:
 		void saveButtonClicked();
+		void aboutDialog();
+		void clearAllRecords();
+		void deleteSavedRecord();
 	private:
 		QWidget *mainWidget;
 		QVBoxLayout *centralWidgetLayout;
@@ -37,7 +41,7 @@ class MainWindow : public QMainWindow
 		QLabel *dateOfBirthLabel;
 		QLabel *phoneNumberLabel;
 		QPushButton *savePushButton;
-		QPushButton *newPushButton;
+		QPushButton *clearPushButton;
 		QLineEdit *nameLineEdit;
 		QDateEdit *dateOfBirthEdit;
 		QLineEdit *phoneNumberLineEdit;
@@ -60,11 +64,13 @@ class MainWindow : public QMainWindow
 		QAction *openToolBarAction;
 		QAction *closeToolBarAction;
 		QAction *clearToolBarAction;
+		QAction *deleteOneEntryToolBarAction;
 		// Icons
 		QPixmap newIcon;
 		QPixmap openIcon;
 		QPixmap closeIcon;
 		QPixmap clearIcon;
+		QPixmap deleteIcon;
 		// init methods
 		void clearFields();
 		void createIcons();
