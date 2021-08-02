@@ -36,7 +36,7 @@ void MainWindow::setupCoreWidgets() {
 	dateOfBirthLabel= new QLabel("Date Of Birth:");
 	phoneNumberLabel = new QLabel("Phone Number");
 	savePushButton = new QPushButton("Save");
-	newPushButton = new QPushButton("Clear All");
+	clearPushButton = new QPushButton("Clear All");
 	nameLineEdit = new QLineEdit();
 	dateOfBirthEdit = new QDateEdit(QDate::currentDate());
 	phoneNumberLineEdit = new QLineEdit();
@@ -70,7 +70,7 @@ void MainWindow::setupCoreWidgets() {
 
 	buttonsLayout->addStretch();
 	buttonsLayout->addWidget(savePushButton);
-	buttonsLayout->addWidget(newPushButton);
+	buttonsLayout->addWidget(clearPushButton);
 }
 
 void MainWindow::createMenuBar() {
