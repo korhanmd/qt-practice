@@ -4,6 +4,7 @@ MainWindow::MainWindow()
 {
 	setWindowTitle("SRM System");
 	setFixedSize(500, 500);
+	setWindowIcon(QIcon("window_logo.png"));
 
 	createIcons();
 	setupCoreWidgets();
