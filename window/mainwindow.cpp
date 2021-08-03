@@ -114,8 +114,12 @@ void MainWindow::createToolBar() {
 void MainWindow::setupSignalsAndSlots() {
 	// Setup Signals and Slots
 	connect(quitAction, &QAction::triggered, this, &QApplication::quit);
+	connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutDialog()));
+	connect(clearToolBarAction, SIGNAL(triggered()), this, SLOT(clearAllRecords()));
 	connect(closeToolBarAction, &QAction::triggered, this, &QApplication::quit);
+	connect(deleteOneEntryToolBarAction, SIGNAL(triggered()), this, SLOT(deleteSavedRecord()));
 	connect(savePushButton, SIGNAL(clicked()), this, SLOT(saveButtonClicked()));
+	connect(clearPushButton, SIGNAL(clicked()), this, SLOT(clearAllRecords()));
 }
 
 void MainWindow::saveButtonClicked()
