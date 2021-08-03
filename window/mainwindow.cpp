@@ -132,6 +132,13 @@ void MainWindow::saveButtonClicked()
 	clearFields();
 }
 
+void MainWindow::aboutDialog()
+{
+	QMessageBox::about(this, "About RMS System","RMS System 2.0"
+	"<p>Copyright &copy; 2005 Inc." "This is a simple application to demonstrate the use of windows,"
+	"tool bars, menus and dialog boxes");
+}
+
 void MainWindow::clearFields()
 {
 	nameLineEdit->clear();
