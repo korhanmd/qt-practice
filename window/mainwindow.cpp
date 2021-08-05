@@ -25,6 +25,7 @@ void MainWindow::createIcons() {
 	openIcon = QPixmap("open.png");
 	closeIcon = QPixmap("close.png");
 	clearIcon = QPixmap("clear.png");
+	deleteIcon = QPixmap("delete.png");
 }
 
 void MainWindow::setupCoreWidgets() {
@@ -108,6 +109,7 @@ void MainWindow::createToolBar() {
 	openToolBarAction = toolbar->addAction(QIcon(openIcon), "Open File");
 	toolbar->addSeparator();
 	clearToolBarAction = toolbar->addAction(QIcon(clearIcon), "Clear All");
+	deleteOneEntryToolBarAction = toolbar->addAction(QIcon(deleteIcon), "Delete a record");
 	closeToolBarAction = toolbar->addAction(QIcon(closeIcon), "Quit Application");
 }
 
