@@ -153,6 +153,18 @@ void MainWindow::clearAllRecords()
 	}
 }
 
+void MainWindow::deleteSavedRecord()
+{
+	bool ok;
+	int rowId = QInputDialog::getInt(this, tr("Select Row to delete"), 
+		tr("Please enter Row ID of record (Eg. 1)"), 
+		1, 1, model->rowCount(), 1, &ok );
+
+	if (ok) {
+		model->removeRow(rowId-1);
+	}
+}
+
 void MainWindow::clearFields()
 {
 	nameLineEdit->clear();
