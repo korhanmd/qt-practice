@@ -139,6 +139,18 @@ void MainWindow::aboutDialog()
 	"tool bars, menus and dialog boxes");
 }
 
+void MainWindow::clearAllRecords()
+{
+	int status = QMessageBox::question(this, tr("Delete all Records ?"),
+		tr("This operation will delete all saved records. " "<p>Do you want to remove all saved records ? "),
+		tr("Yes, Delete all records"), tr("No !"), QString(), 1, 1);
+
+	if (status == 0) {
+		int rowCount = model->rowCount();
+		model->removeRows(0, rowCount);
+	}
+}
+
 void MainWindow::clearFields()
 {
 	nameLineEdit->clear();
