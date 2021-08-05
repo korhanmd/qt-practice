@@ -2,7 +2,7 @@
 
 MainWindow::MainWindow()
 {
-	setWindowTitle("SRM System");
+	setWindowTitle("RMS System");
 	setFixedSize(500, 500);
 	setWindowIcon(QIcon("window_logo.png"));
 
