@@ -130,6 +130,8 @@ void MainWindow::saveButtonClicked()
 	
 	model->appendRow({ name, dob, phoneNumber});
 	clearFields();
+
+	QMessageBox::information(this, tr("RMS System"), tr("Record saved successfully!"), QMessageBox::Ok|QMessageBox::Default, QMessageBox::NoButton, QMessageBox::NoButton);
 }
 
 void MainWindow::aboutDialog()
