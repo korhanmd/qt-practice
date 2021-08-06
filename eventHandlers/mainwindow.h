@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMoveEvent>
 #include <QStatusBar>
+#include <QLabel>
 
 class MainWindow: public QMainWindow {
 	Q_OBJECT
@@ -13,6 +14,10 @@ class MainWindow: public QMainWindow {
 	
 	protected:
 		void moveEvent(QMoveEvent *event);
+		void timerEvent(QTimerEvent *event);
+
+	private:
+		QLabel *currentDateTimeLabel;
 };
 
 #endif
