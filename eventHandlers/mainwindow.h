@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMoveEvent>
+#include <QStatusBar>
 
 class MainWindow: public QMainWindow {
 	Q_OBJECT
