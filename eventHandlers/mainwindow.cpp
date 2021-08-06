@@ -15,3 +15,9 @@ void MainWindow::moveEvent(QMoveEvent *event) {
 	QString text = QString::number(xCord) + ", " + QString::number(yCord);
 	statusBar()->showMessage(text);
 }
+
+void MainWindow::timerEvent(QTimerEvent *event){
+	Q_UNUSED(event);
+	QString dateTime = QDateTime::currentDateTime().toString();
+	currentDateTimeLabel->setText(dateTime);
+}
