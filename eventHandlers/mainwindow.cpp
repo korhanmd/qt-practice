@@ -1,7 +1,12 @@
+#include <QDateTime>
 #include "mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow (parent){
 	setWindowTitle("Locate Window with timer");
+	currentDateTimeLabel = new QLabel("Current Date and Time");
+	currentDateTimeLabel->setAlignment(Qt::AlignCenter);
+	setCentralWidget(currentDateTimeLabel);
+	startTimer(1000);
 }
 
 void MainWindow::moveEvent(QMoveEvent *event) {
