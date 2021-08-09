@@ -2,6 +2,7 @@
 
 DragTextEdit::DragTextEdit(QWidget *parent) : QTextEdit(parent){
 	setAcceptDrops(true);
+}
 
 void DragTextEdit::dragMoveEvent(QDragMoveEvent *event){
 	event->acceptProposedAction();
