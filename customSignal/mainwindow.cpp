@@ -13,3 +13,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow (parent){
 	
 	connect(this, SIGNAL(mouseMoved(QPoint)), this, SLOT(updateMousePosition(QPoint)));
 }
+
+void MainWindow::mousePressEvent(QMouseEvent *event){
+	emit mouseMoved(event->pos());
+}
