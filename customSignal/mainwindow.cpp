@@ -17,3 +17,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow (parent){
 void MainWindow::mousePressEvent(QMouseEvent *event){
 	emit mouseMoved(event->pos());
 }
+
+void MainWindow::updateMousePosition(QPoint point){
+	int xCord = point.x();
+	int yCord = point.y();
+
+	QString text = QString::number(xCord) + ", " + QString::number(yCord);
+	mousePosition->setText(text);
+	
+	statusBar()->showMessage(text);
+}
