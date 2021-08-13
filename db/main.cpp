@@ -30,4 +30,15 @@ int main(int argc, char *argv[]) {
 		"PRIMARY KEY (id)\n"
 		") ENGINE=INNODB;";
 	QSqlQuery table_creator(table_definition, db_conn);
+
+	// Issue SELECT statement
+	QSqlQuery statement("SELECT * FROM contacts", db_conn);
+	QSqlRecord record = statement.record();
+	
+	while (statement.next()){
+		QString firstName = statement.value(record.indexOf("first_name")).toString();
+		QString lastName = statement.value(record.indexOf("last_name")).toString();
+		QString phoneNumber = statement.value(record.indexOf("phone_number")).toString();
+		qDebug() << firstName << " - " << lastName << " - " << phoneNumber;
+	}
 }
