@@ -34,11 +34,34 @@ int main(int argc, char *argv[]) {
 	// Issue SELECT statement
 	QSqlQuery statement("SELECT * FROM contacts", db_conn);
 	QSqlRecord record = statement.record();
-	
+
 	while (statement.next()){
 		QString firstName = statement.value(record.indexOf("first_name")).toString();
 		QString lastName = statement.value(record.indexOf("last_name")).toString();
 		QString phoneNumber = statement.value(record.indexOf("phone_number")).toString();
 		qDebug() << firstName << " - " << lastName << " - " << phoneNumber;
 	}
+
+	// Insert new contacts
+	QSqlQuery insert_statement(db_conn);
+	insert_statement.prepare("INSERT INTO contacts (last_name, first_name, phone_number)"
+		"VALUES (?, ?, ?)");
+	insert_statement.addBindValue("Sidle");
+	insert_statement.addBindValue("Sara");
+	insert_statement.addBindValue("+14495849555");
+	insert_statement.exec();
+
+	insert_statement.prepare("INSERT INTO contacts (last_name, first_name, phone_number)"
+		"VALUES (?, ?, ?)");
+	insert_statement.bindValue(2, "+144758849555");
+	insert_statement.bindValue(1, "Brass");
+	insert_statement.bindValue(0, "Jim");
+	insert_statement.exec();
+
+	insert_statement.prepare("INSERT INTO contacts (last_name, first_name, phone_number)"
+		"VALUES (:last_name, :first_name, :phone_number)");
+	insert_statement.bindValue(":last_name", "Brown");
+	insert_statement.bindValue(":first_name", "Warrick");
+	insert_statement.bindValue(":phone_number", "+7494588594");
+	insert_statement.exec();
 }
