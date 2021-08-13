@@ -1,16 +1,6 @@
 #include <QApplication>
 #include <QtSql>
 #include <QDebug>
-/*
-use contact_db;
-CREATE TABLE IF NOT EXISTS contacts (
-id INT AUTO_INCREMENT,
-last_name VARCHAR(255) NOT NULL,
-first_name VARCHAR(255) NOT NULL,
-phone_number VARCHAR(255) NOT NULL,
-PRIMARY KEY (id)
-) ENGINE=INNODB;
-*/
 
 int main(int argc, char *argv[]) {
 	// Setup db connection
@@ -29,4 +19,15 @@ int main(int argc, char *argv[]) {
 	} else {
 		qDebug() << "Database connection established !";
 	}
+
+	// Create table
+	QString table_definition = "use contact_db;\n"
+		"CREATE TABLE IF NOT EXISTS contacts (\n"
+		"id INT AUTO_INCREMENT,\n"
+		"last_name VARCHAR(255) NOT NULL,\n"
+		"first_name VARCHAR(255) NOT NULL,\n"
+		"phone_number VARCHAR(255) NOT NULL,\n"
+		"PRIMARY KEY (id)\n"
+		") ENGINE=INNODB;";
+	QSqlQuery table_creator(table_definition, db_conn);
 }
