@@ -69,4 +69,9 @@ int main(int argc, char *argv[]) {
 	QSqlQuery delete_statement(db_conn);
 	delete_statement.exec("DELETE FROM contacts WHERE first_name = 'Warrick'");
 	qDebug() << "Number of rows affected: " << delete_statement.numRowsAffected();
+
+	// Update a record
+	QSqlQuery update_statement(db_conn);
+	update_statement.exec("UPDATE contacts SET first_name='Jude' WHERE id=1 ");
+	qDebug() << "Number of rows affected: " << update_statement.numRowsAffected();
 }
