@@ -64,4 +64,9 @@ int main(int argc, char *argv[]) {
 	insert_statement.bindValue(":first_name", "Warrick");
 	insert_statement.bindValue(":phone_number", "+7494588594");
 	insert_statement.exec();
+
+	// Delete a record
+	QSqlQuery delete_statement(db_conn);
+	delete_statement.exec("DELETE FROM contacts WHERE first_name = 'Warrick'");
+	qDebug() << "Number of rows affected: " << delete_statement.numRowsAffected();
 }
