@@ -49,34 +49,4 @@ int main(int argc, char *argv[])
 	contactsTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 	QHeaderView *header = contactsTableView->horizontalHeader();
 	header->setStretchLastSection(true);
-		
-	for (int i = 0; i < contactsTableModel->rowCount(); ++i) {
-		QSqlRecord record = contactsTableModel->record(i);
-		QString id = record.value("id").toString();
-		QString last_name = record.value("last_name").toString();
-		QString first_name = record.value("first_name").toString();
-		QString phone_number = record.value("phone_number").toString();
-		qDebug() << id << " : " << first_name << " : " << last_name << " : " << phone_number;
-	}
-
-	// Insert Row
-	int row = contactsTableModel->rowCount();
-	contactsTableModel->insertRows(row, 1);
-	contactsTableModel->setData(contactsTableModel->index(row, 1), "Stokes");
-	contactsTableModel->setData(contactsTableModel->index(row, 2), "Nick");
-	contactsTableModel->setData(contactsTableModel->index(row, 3), "+443569948");
-	contactsTableModel->submitAll();
-
-	// Custom filter
-	qDebug() << "\nCustom filter: \n";
-	contactsTableModel->setFilter("id=12 AND last_name like'Stokes'");
-	contactsTableModel->select();
-	for (int i = 0; i < contactsTableModel->rowCount(); ++i) {
-		QSqlRecord record = contactsTableModel->record(i);
-		QString id = record.value("id").toString();
-		QString last_name = record.value("last_name").toString();
-		QString first_name = record.value("first_name").toString();
-		QString phone_number = record.value("phone_number").toString();
-		qDebug() << id << " : " << first_name << " : " << last_name << " : " << phone_number;
-	}
 }
