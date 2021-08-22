@@ -49,4 +49,10 @@ int main(int argc, char *argv[])
 	contactsTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 	QHeaderView *header = contactsTableView->horizontalHeader();
 	header->setStretchLastSection(true);
+
+	QWidget window;
+	QVBoxLayout *layout = new QVBoxLayout();
+	QPushButton *saveToDbPushButton = new QPushButton("Save Changes");
+	layout->addWidget(contactsTableView);
+	layout->addWidget(saveToDbPushButton);
 }
