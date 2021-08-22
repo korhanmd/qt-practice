@@ -55,4 +55,9 @@ int main(int argc, char *argv[])
 	QPushButton *saveToDbPushButton = new QPushButton("Save Changes");
 	layout->addWidget(contactsTableView);
 	layout->addWidget(saveToDbPushButton);
+
+	QObject::connect(saveToDbPushButton, SIGNAL(clicked()), contactsTableModel, SLOT(submitAll()));
+	window.setLayout(layout);
+	window.show();
+	return app.exec();
 }
