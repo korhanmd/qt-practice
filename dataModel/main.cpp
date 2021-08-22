@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
-	
+
 	// Setup db connection
 	QSqlDatabase db_conn =
 	QSqlDatabase::addDatabase("QMYSQL", "contact_db");
@@ -26,10 +26,22 @@ int main(int argc, char *argv[])
 	}
 	
 	// Use Database model
+	enum {
+		ID = 0,
+		LastName = 1,
+		FirstName = 2,
+		PhoneNumber = 3,
+	};
+
 	QSqlTableModel *contactsTableModel = new QSqlTableModel(0, db_conn);
 	contactsTableModel->setTable("contacts");
 	contactsTableModel->select();
-	
+	contactsTableModel->setHeaderData(ID, Qt::Horizontal, QObject::tr("ID"));
+	contactsTableModel->setHeaderData(LastName, Qt::Horizontal, QObject::tr("Last Name"));
+	contactsTableModel->setHeaderData(FirstName, Qt::Horizontal, QObject::tr("First Name"));
+	contactsTableModel->setHeaderData(PhoneNumber, Qt::Horizontal, QObject::tr("Phone Number"));
+	contactsTableModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
+		
 	for (int i = 0; i < contactsTableModel->rowCount(); ++i) {
 		QSqlRecord record = contactsTableModel->record(i);
 		QString id = record.value("id").toString();
