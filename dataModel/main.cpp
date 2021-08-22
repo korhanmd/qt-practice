@@ -41,6 +41,14 @@ int main(int argc, char *argv[])
 	contactsTableModel->setHeaderData(FirstName, Qt::Horizontal, QObject::tr("First Name"));
 	contactsTableModel->setHeaderData(PhoneNumber, Qt::Horizontal, QObject::tr("Phone Number"));
 	contactsTableModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
+
+	// Add view
+	QTableView *contactsTableView = new QTableView();
+	contactsTableView->setModel(contactsTableModel);
+	contactsTableView->setSelectionMode(QAbstractItemView::SingleSelection);
+	contactsTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+	QHeaderView *header = contactsTableView->horizontalHeader();
+	header->setStretchLastSection(true);
 		
 	for (int i = 0; i < contactsTableModel->rowCount(); ++i) {
 		QSqlRecord record = contactsTableModel->record(i);
