@@ -1,8 +1,16 @@
+#include <QApplication>
 #include <QtSql>
+#include <QVBoxLayout>
+#include <QPushButton>
 #include <QDebug>
+#include <Qt>
+#include <QTableView>
+#include <QHeaderView>
 
 int main(int argc, char *argv[])
 {
+	QApplication app(argc, argv);
+	
 	// Setup db connection
 	QSqlDatabase db_conn =
 	QSqlDatabase::addDatabase("QMYSQL", "contact_db");
