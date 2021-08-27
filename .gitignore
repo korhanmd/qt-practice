@@ -4,3 +4,4 @@
 *.stash
 moc_*
 *.pro.user
+build*
