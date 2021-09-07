@@ -8,7 +8,7 @@
 namespace cm {
     namespace controllers {
 
-        class MasterController
+        class CMLIBSHARED_EXPORT MasterController : public QObject
         {
             Q_OBJECT
 
