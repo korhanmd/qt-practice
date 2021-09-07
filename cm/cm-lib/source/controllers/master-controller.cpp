@@ -1,6 +1,11 @@
 #include "master-controller.h"
 
-MasterController::MasterController()
+namespace cm {
+namespace controllers {
+
+MasterController::MasterController(QObject* parent) : QObject(parent)
 {
 
 }
+
+}}
