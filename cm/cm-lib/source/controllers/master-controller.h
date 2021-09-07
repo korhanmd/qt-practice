@@ -3,10 +3,19 @@
 
 #include <QObject>
 
-class MasterController
-{
-public:
-    MasterController();
-};
+#include <cm-lib_global.h>
+
+namespace cm {
+    namespace controllers {
+
+        class MasterController
+        {
+            Q_OBJECT
+
+        public:
+            explicit MasterController(QObject* parent = nullptr);
+        };
+    }
+}
 
 #endif // MASTERCONTROLLER_H
