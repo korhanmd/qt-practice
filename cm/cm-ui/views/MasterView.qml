@@ -6,4 +6,8 @@ Window {
     width: 640
     height: 480
     title: qsTr("Client Management")
+
+    Text {
+        text: "Welcome to the Client Management system!"
+    }
 }
