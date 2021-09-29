@@ -37,3 +37,5 @@ unix {
     target.path = /usr/lib
     INSTALLS += target
 }
+
+message(cm-lib project dir: $${PWD})
